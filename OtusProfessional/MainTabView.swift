@@ -10,6 +10,7 @@ import SwiftUI
 struct MainTabView: View {
     
     @State var selection: AppTab = .home
+    @State private var loading = true
     
     var body: some View {
         TabView(selection: $selection) {
@@ -19,9 +20,16 @@ struct MainTabView: View {
                         .imageScale(.large)
                         .foregroundStyle(.tint)
                     
-                    Button("Открыть purple") {
+                    Button("Открыть 2 табу") {
                         selection = .list
                     }
+                    
+                    
+                    Button("Переключить UIViewRepresentable") {
+                        loading = !loading
+                    }
+                    
+                    ActivityIndicatorRepresentable(isAnimating: $loading)
                 }
             }
             
