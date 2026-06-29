@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A10000000000000000000003 /* AnimechanAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000002 /* AnimechanAPI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FA1A8DC02FA36EF9001367FD /* OtusProfessional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtusProfessional.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10000000000000000000003 /* AnimechanAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = OtusProfessional;
 			packageProductDependencies = (
+				A10000000000000000000002 /* AnimechanAPI */,
 			);
 			productName = OtusProfessional;
 			productReference = FA1A8DC02FA36EF9001367FD /* OtusProfessional.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = FA1A8DB72FA36EF9001367FD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A10000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AnimechanAPI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA1A8DC12FA36EF9001367FD /* Products */;
 			projectDirPath = "";
@@ -332,6 +341,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A10000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AnimechanAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AnimechanAPI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A10000000000000000000002 /* AnimechanAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AnimechanAPI" */;
+			productName = AnimechanAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA1A8DB82FA36EF9001367FD /* Project object */;
 }

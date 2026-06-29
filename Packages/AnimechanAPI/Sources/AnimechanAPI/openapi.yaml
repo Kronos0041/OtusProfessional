@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: Animechan API
+  version: 1.0.0
+servers:
+  - url: https://api.animechan.io/v1
+paths:
+  /quotes:
+    get:
+      operationId: getQuotes
+      parameters:
+        - name: anime
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: character
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+      responses:
+        "200":
+          description: Ordered quotes for the provided anime or character query.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuoteListResponse"
+components:
+  schemas:
+    QuoteListResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Quote"
+      required:
+        - data
+    Quote:
+      type: object
+      properties:
+        content:
+          type: string
+        anime:
+          $ref: "#/components/schemas/NamedResource"
+        character:
+          $ref: "#/components/schemas/NamedResource"
+      required:
+        - content
+        - anime
+        - character
+    NamedResource:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name

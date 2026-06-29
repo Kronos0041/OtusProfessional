@@ -1,0 +1,77 @@
+[
+  {
+    "content": "Hard work is worthless for those that don't believe in themselves.",
+    "anime": { "id": 1, "name": "Naruto" },
+    "character": { "id": 1, "name": "Naruto Uzumaki" }
+  },
+  {
+    "content": "When people are protecting something truly special to them, they truly can become as strong as they can be.",
+    "anime": { "id": 1, "name": "Naruto" },
+    "character": { "id": 2, "name": "Haku" }
+  },
+  {
+    "content": "A lesson without pain is meaningless.",
+    "anime": { "id": 2, "name": "Fullmetal Alchemist: Brotherhood" },
+    "character": { "id": 3, "name": "Edward Elric" }
+  },
+  {
+    "content": "It's not a crime to exist.",
+    "anime": { "id": 3, "name": "One Piece" },
+    "character": { "id": 4, "name": "Franky" }
+  },
+  {
+    "content": "Power comes in response to a need, not a desire.",
+    "anime": { "id": 4, "name": "Dragon Ball Z" },
+    "character": { "id": 5, "name": "Goku" }
+  },
+  {
+    "content": "Whatever you lose, you'll find it again. But what you throw away you'll never get back.",
+    "anime": { "id": 5, "name": "Rurouni Kenshin" },
+    "character": { "id": 6, "name": "Himura Kenshin" }
+  },
+  {
+    "content": "If you don't take risks, you can't create a future.",
+    "anime": { "id": 3, "name": "One Piece" },
+    "character": { "id": 7, "name": "Monkey D. Luffy" }
+  },
+  {
+    "content": "The world isn't perfect. But it's there for us, doing the best it can.",
+    "anime": { "id": 6, "name": "Fullmetal Alchemist" },
+    "character": { "id": 8, "name": "Roy Mustang" }
+  },
+  {
+    "content": "I don't know everything, I just know what I know.",
+    "anime": { "id": 7, "name": "Monogatari" },
+    "character": { "id": 9, "name": "Tsubasa Hanekawa" }
+  },
+  {
+    "content": "The moment you think of giving up, think of the reason why you held on so long.",
+    "anime": { "id": 8, "name": "Fairy Tail" },
+    "character": { "id": 10, "name": "Natsu Dragneel" }
+  },
+  {
+    "content": "Fear is not evil. It tells you what your weakness is.",
+    "anime": { "id": 8, "name": "Fairy Tail" },
+    "character": { "id": 11, "name": "Gildarts Clive" }
+  },
+  {
+    "content": "I'll leave tomorrow's problems to tomorrow's me.",
+    "anime": { "id": 9, "name": "One Punch Man" },
+    "character": { "id": 12, "name": "Saitama" }
+  },
+  {
+    "content": "I'm not a hero because I want your approval. I do it because I want to.",
+    "anime": { "id": 9, "name": "One Punch Man" },
+    "character": { "id": 12, "name": "Saitama" }
+  },
+  {
+    "content": "People's lives don't end when they die, it ends when they lose faith.",
+    "anime": { "id": 1, "name": "Naruto" },
+    "character": { "id": 13, "name": "Itachi Uchiha" }
+  },
+  {
+    "content": "A place where someone still thinks about you is a place you can call home.",
+    "anime": { "id": 1, "name": "Naruto" },
+    "character": { "id": 1, "name": "Naruto Uzumaki" }
+  }
+]

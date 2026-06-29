@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    let quotesService: QuotesService?
+
+    init(quotesService: QuotesService? = nil) {
+        self.quotesService = quotesService
+    }
+
     var body: some View {
         VStack {
-            MainTabView()
+            AnimeChanRootView(quotesService: quotesService)
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(quotesService: MockQuotesService())
 }
