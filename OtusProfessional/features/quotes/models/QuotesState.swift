@@ -57,7 +57,7 @@ struct QuotesState {
     var title: String {
         switch context {
         case .default:
-            return "Animechan"
+            return Strings.Quotes.title
         case let .related(anime, _):
             return anime
         }
@@ -74,20 +74,20 @@ struct QuotesState {
     }
 
     var subtitle: String {
-        activeQuery?.subtitle ?? SwiftGen.Quotes.Subtitle.empty
+        activeQuery?.subtitle ?? Strings.Quotes.Subtitle.empty
     }
 
     var dialogTitle: String {
         switch rubric {
-        case .anime: return SwiftGen.Quotes.Dialog.Title.anime
-        case .character: return SwiftGen.Quotes.Dialog.Title.character
+        case .anime: return Strings.Quotes.Dialog.Title.anime
+        case .character: return Strings.Quotes.Dialog.Title.character
         }
     }
 
     var dialogPlaceholder: String {
         switch rubric {
-        case .anime: return SwiftGen.Quotes.Dialog.Placeholder.anime
-        case .character: return SwiftGen.Quotes.Dialog.Placeholder.character
+        case .anime: return Strings.Quotes.Dialog.Placeholder.anime
+        case .character: return Strings.Quotes.Dialog.Placeholder.character
         }
     }
 

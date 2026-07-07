@@ -151,11 +151,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(PROJECT_DIR)/OtusProfessional/Generated/SwiftGen.swift",
+				"$(PROJECT_DIR)/OtusProfessional/Generated/Strings.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -x \"/opt/homebrew/bin/swiftgen\" ]; then\n  SWIFTGEN=\"/opt/homebrew/bin/swiftgen\"\nelif command -v swiftgen >/dev/null; then\n  SWIFTGEN=\"$(command -v swiftgen)\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'brew install swiftgen'.\"\n  exit 0\nfi\n\n\"$SWIFTGEN\" config run --config \"$PROJECT_DIR/swiftgen.yml\"\n";
+			shellScript = "if [ -x \"/opt/homebrew/bin/swiftgen\" ]; then\n  SWIFTGEN=\"/opt/homebrew/bin/swiftgen\"\nelif command -v swiftgen >/dev/null; then\n  SWIFTGEN=\"$(command -v swiftgen)\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'brew install swiftgen'.\"\n  exit 1\nfi\n\n\"$SWIFTGEN\" config run --config \"$PROJECT_DIR/swiftgen.yml\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

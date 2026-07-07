@@ -64,7 +64,7 @@ internal struct AnimeQuotesScreen: View {
                 path.removeLast()
             }
 
-            Picker(SwiftGen.Quotes.Category.title, selection: rubricBinding) {
+            Picker(Strings.Quotes.Category.title, selection: rubricBinding) {
                 ForEach(QuotesRubric.allCases) { rubric in
                     Text(rubric.title).tag(rubric)
                 }
@@ -77,7 +77,7 @@ internal struct AnimeQuotesScreen: View {
         }
         .background(Color(.systemGroupedBackground))
         .overlay(alignment: .bottomTrailing) {
-            QuotesFloatingAddButton(accessibilityLabel: SwiftGen.Quotes.Action.addRequest) {
+            QuotesFloatingAddButton(accessibilityLabel: Strings.Quotes.Action.addRequest) {
                 store.dispatch(.showQueryDialog)
             }
             .padding(.trailing, QuotesConstants.Layout.floatingButtonTrailingPadding)
@@ -103,11 +103,11 @@ internal struct AnimeQuotesScreen: View {
         .alert(store.state.dialogTitle, isPresented: queryDialogPresentedBinding) {
             TextField(store.state.dialogPlaceholder, text: queryDraftBinding)
 
-            Button(SwiftGen.Common.cancel, role: .cancel) {
+            Button(Strings.Common.cancel, role: .cancel) {
                 store.dispatch(.cancelQueryDialog)
             }
 
-            Button(SwiftGen.Common.ok) {
+            Button(Strings.Common.ok) {
                 store.dispatch(.confirmQueryDialog)
             }
         }
@@ -120,7 +120,7 @@ internal struct AnimeQuotesScreen: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else if let message = store.state.errorMessage, store.state.quotes.isEmpty {
             ContentUnavailableView(
-                SwiftGen.Quotes.Error.loadFailed,
+                Strings.Quotes.Error.loadFailed,
                 systemImage: "exclamationmark.triangle",
                 description: Text(message)
             )
@@ -152,7 +152,7 @@ internal struct AnimeQuotesScreen: View {
                     Text(store.state.subtitle)
                 } footer: {
                     if !store.state.canLoadNextPage {
-                        Text(SwiftGen.Quotes.Footer.noMoreQuotes)
+                        Text(Strings.Quotes.Footer.noMoreQuotes)
                     }
                 }
             }

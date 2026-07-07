@@ -15,8 +15,8 @@ enum QuotesRubric: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .anime:     return SwiftGen.Quotes.Rubric.anime
-        case .character: return SwiftGen.Quotes.Rubric.character
+        case .anime:     return Strings.Quotes.Rubric.anime
+        case .character: return Strings.Quotes.Rubric.character
         }
     }
 }
@@ -33,8 +33,8 @@ enum QuotesQuery: Hashable {
 
     var subtitle: String {
         switch self {
-        case let .anime(name):     return SwiftGen.Quotes.Query.anime(name)
-        case let .character(name): return SwiftGen.Quotes.Query.character(name)
+        case let .anime(name):     return Strings.Quotes.Query.anime(name)
+        case let .character(name): return Strings.Quotes.Query.character(name)
         }
     }
 }

@@ -40,9 +40,19 @@ internal struct AnimeQuoteDetailScreen: View {
 
     var body: some View {
         VStack(spacing: QuotesConstants.Layout.zeroSpacing) {
-            AnimeNavigationBar(title: SwiftGen.Quotes.Detail.title, canGoBack: true) {
+            AnimeNavigationBar(title: Strings.Quotes.Detail.title, canGoBack: true) {
                 path.removeLast()
             }
+
+            Picker(Strings.Quotes.Category.title, selection: rubricBinding) {
+                ForEach(QuotesRubric.allCases) { rubric in
+                    Text(rubric.title).tag(rubric)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
+            .padding(.bottom, QuotesConstants.Layout.segmentedBottomPadding)
+
             content
         }
         .background(Color(.systemGroupedBackground))
@@ -93,7 +103,7 @@ internal struct AnimeQuoteDetailScreen: View {
 
                 Section(store.state.subtitle) {
                     ContentUnavailableView(
-                        SwiftGen.Quotes.Error.loadFailed,
+                        Strings.Quotes.Error.loadFailed,
                         systemImage: "exclamationmark.triangle",
                         description: Text(message)
                     )
@@ -130,7 +140,7 @@ internal struct AnimeQuoteDetailScreen: View {
                     Text(store.state.subtitle)
                 } footer: {
                     if !store.state.canLoadNextPage {
-                        Text(SwiftGen.Quotes.Footer.noMoreQuotes)
+                        Text(Strings.Quotes.Footer.noMoreQuotes)
                     }
                 }
             }

@@ -1,6 +1,7 @@
 "quotes.rubric.anime" = "By anime";
 "quotes.rubric.character" = "By character";
 
+"quotes.title" = "Animechan";
 "quotes.category.title" = "Category";
 "quotes.query.anime" = "Request: anime=%@";
 "quotes.query.character" = "Request: character=%@";
