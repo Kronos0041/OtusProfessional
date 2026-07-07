@@ -119,7 +119,7 @@ internal struct AnimeQuotesScreen: View {
     @ViewBuilder
     private var content: some View {
         if store.state.viewMode == .loading, store.state.quotes.isEmpty {
-            ProgressView()
+            ActivityIndicatorRepresentable(isAnimating: .constant(true))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else if let message = store.state.errorMessage, store.state.quotes.isEmpty {
             ContentUnavailableView(
@@ -144,7 +144,10 @@ internal struct AnimeQuotesScreen: View {
                     if store.state.isLoadingPage {
                         HStack {
                             Spacer()
-                            ProgressView()
+                            ActivityIndicatorRepresentable(
+                                isAnimating: .constant(true),
+                                style: .medium
+                            )
                             Spacer()
                         }
                     }

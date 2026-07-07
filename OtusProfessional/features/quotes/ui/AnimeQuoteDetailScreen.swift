@@ -94,7 +94,7 @@ internal struct AnimeQuoteDetailScreen: View {
                 Section(store.state.subtitle) {
                     HStack {
                         Spacer()
-                        ProgressView()
+                        ActivityIndicatorRepresentable(isAnimating: .constant(true))
                         Spacer()
                     }
                 }
@@ -132,7 +132,10 @@ internal struct AnimeQuoteDetailScreen: View {
                     if store.state.isLoadingPage {
                         HStack {
                             Spacer()
-                            ProgressView()
+                            ActivityIndicatorRepresentable(
+                                isAnimating: .constant(true),
+                                style: .medium
+                            )
                             Spacer()
                         }
                     }
