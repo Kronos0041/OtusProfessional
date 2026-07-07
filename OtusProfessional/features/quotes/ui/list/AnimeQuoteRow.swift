@@ -9,7 +9,11 @@ import SwiftUI
 import AnimechanAPI
 
 internal struct AnimeQuoteRow: View {
-    let quote: AnimechanQuote
+    private let quote: AnimechanQuote
+
+    init(quote: AnimechanQuote) {
+        self.quote = quote
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: QuotesConstants.QuoteRow.verticalSpacing) {

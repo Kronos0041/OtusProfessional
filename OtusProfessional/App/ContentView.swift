@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    let quotesService: QuotesService?
+    private let quotesService: QuotesService
 
-    init(quotesService: QuotesService? = nil) {
+    init(quotesService: QuotesService) {
         self.quotesService = quotesService
     }
 
     var body: some View {
-        VStack {
-            AnimeChanRootView(quotesService: quotesService)
-        }
+        AnimeChanRootView(quotesService: quotesService)
     }
 }
 

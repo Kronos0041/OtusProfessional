@@ -8,11 +8,11 @@ import SwiftUI
 import AnimechanAPI
 
 struct AnimeChanRootView: View {
-    let quotesService: QuotesService?
+    private let quotesService: QuotesService
 
     @State private var path: [AnimeRoute] = []
 
-    init(quotesService: QuotesService? = nil) {
+    init(quotesService: QuotesService) {
         self.quotesService = quotesService
     }
 
@@ -25,15 +25,12 @@ struct AnimeChanRootView: View {
                 quotesService: quotesService
             )
         } destination: { route in
-            switch route {
-            case let .quoteDetail(quote, depth):
-                AnimeQuoteDetailScreen(
-                    quote: quote,
-                    depth: depth,
-                    path: $path,
-                    quotesService: quotesService
-                )
-            }
+            AnimeQuoteDetailScreen(
+                quote: route.quote,
+                depth: route.depth,
+                path: $path,
+                quotesService: quotesService
+            )
         }
     }
 }
