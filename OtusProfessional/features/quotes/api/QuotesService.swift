@@ -9,5 +9,5 @@ import Foundation
 import AnimechanAPI
 
 protocol QuotesService {
-    func fetchQuotes(query: AnimechanQuery, page: Int) async throws -> [AnimechanQuote]
+    func getQuotes(query: QuotesQuery, page: Int) async throws -> [AnimechanQuote]
 }

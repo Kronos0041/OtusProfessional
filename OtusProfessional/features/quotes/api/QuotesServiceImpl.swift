@@ -9,9 +9,26 @@ import Foundation
 import AnimechanAPI
 
 final class QuotesServiceImpl: QuotesService {
-    private let service = AnimechanService()
+    private let service: Result<AnimechanService, Error>
+
+    init(service: AnimechanService? = nil) {
+        if let service {
+            self.service = .success(service)
+        } else {
+            self.service = Result {
+                try AnimechanService()
+            }
+        }
+    }
     
-    func fetchQuotes(query: AnimechanQuery, page: Int) async throws -> [AnimechanQuote] {
-        try await service.fetchQuotes(query: query, page: page)
+    func getQuotes(query: QuotesQuery, page: Int) async throws -> [AnimechanQuote] {
+        let service = try service.get()
+
+        switch query {
+        case let .anime(name):
+            return try await service.getQuotes(anime: name, page: page)
+        case let .character(name):
+            return try await service.getQuotes(character: name, page: page)
+        }
     }
 }

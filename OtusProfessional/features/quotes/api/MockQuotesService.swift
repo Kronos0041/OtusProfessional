@@ -28,7 +28,7 @@ final class MockQuotesService: QuotesService {
         self.bundle = bundle
     }
 
-    func fetchQuotes(query: AnimechanQuery, page: Int) async throws -> [AnimechanQuote] {
+    func getQuotes(query: QuotesQuery, page: Int) async throws -> [AnimechanQuote] {
         let quotes = try loadQuotes()
         let filteredQuotes = quotes.filter { quote in
             switch query {
