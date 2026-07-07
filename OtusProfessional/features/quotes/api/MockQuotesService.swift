@@ -14,7 +14,7 @@ enum MockQuotesServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .missingFile:
-            return "Не найден файл MockAnimechanQuotes.json."
+            return SwiftGen.MockQuotes.Error.missingFile
         }
     }
 }

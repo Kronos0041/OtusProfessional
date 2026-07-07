@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		A10000000000000000000003 /* AnimechanAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000002 /* AnimechanAPI */; };
 		A20000000000000000000003 /* OtusUI in Frameworks */ = {isa = PBXBuildFile; productRef = A20000000000000000000002 /* OtusUI */; };
+		FA27D3822FFCCE0000E7EF62 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA27D3802FFCCE0000E7EF62 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA1A8DC02FA36EF9001367FD /* OtusProfessional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtusProfessional.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA27D3812FFCCE0000E7EF62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA27D3832FFCCEB400E7EF62 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -39,6 +42,7 @@
 		FA1A8DB72FA36EF9001367FD = {
 			isa = PBXGroup;
 			children = (
+				FA27D3802FFCCE0000E7EF62 /* Localizable.strings */,
 				FA1A8DC22FA36EF9001367FD /* OtusProfessional */,
 				FA1A8DC12FA36EF9001367FD /* Products */,
 			);
@@ -59,6 +63,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA1A8DCB2FA36EF9001367FD /* Build configuration list for PBXNativeTarget "OtusProfessional" */;
 			buildPhases = (
+				FA27D3842FFCCE0000E7EF62 /* SwiftGen */,
 				FA1A8DBC2FA36EF9001367FD /* Sources */,
 				FA1A8DBD2FA36EF9001367FD /* Frameworks */,
 				FA1A8DBE2FA36EF9001367FD /* Resources */,
@@ -100,6 +105,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = FA1A8DB72FA36EF9001367FD;
 			minimizedProjectReferenceProxies = 1;
@@ -122,10 +128,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA27D3822FFCCE0000E7EF62 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FA27D3842FFCCE0000E7EF62 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/swiftgen.yml",
+				"$(PROJECT_DIR)/en.lproj/Localizable.strings",
+				"$(PROJECT_DIR)/ru.lproj/Localizable.strings",
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(PROJECT_DIR)/OtusProfessional/Generated/SwiftGen.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -x \"/opt/homebrew/bin/swiftgen\" ]; then\n  SWIFTGEN=\"/opt/homebrew/bin/swiftgen\"\nelif command -v swiftgen >/dev/null; then\n  SWIFTGEN=\"$(command -v swiftgen)\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'brew install swiftgen'.\"\n  exit 0\nfi\n\n\"$SWIFTGEN\" config run --config \"$PROJECT_DIR/swiftgen.yml\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA1A8DBC2FA36EF9001367FD /* Sources */ = {
@@ -137,12 +169,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		FA27D3802FFCCE0000E7EF62 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA27D3812FFCCE0000E7EF62 /* en */,
+				FA27D3832FFCCEB400E7EF62 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		FA1A8DC92FA36EF9001367FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -207,6 +252,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

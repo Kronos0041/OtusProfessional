@@ -1,0 +1,26 @@
+"quotes.rubric.anime" = "By anime";
+"quotes.rubric.character" = "By character";
+
+"quotes.category.title" = "Category";
+"quotes.query.anime" = "Request: anime=%@";
+"quotes.query.character" = "Request: character=%@";
+"quotes.subtitle.empty" = "Tap + to set a request";
+
+"quotes.dialog.title.anime" = "Enter anime";
+"quotes.dialog.title.character" = "Enter character";
+"quotes.dialog.placeholder.anime" = "For example, Naruto";
+"quotes.dialog.placeholder.character" = "For example, Saitama";
+
+"quotes.detail.title" = "Quote";
+"quotes.error.loadFailed" = "Failed to load quotes";
+"quotes.footer.noMoreQuotes" = "No more quotes in this category.";
+"quotes.error.emptyQuery" = "Enter a value for the request.";
+"quotes.action.addRequest" = "Add request";
+
+"common.cancel" = "Cancel";
+"common.ok" = "OK";
+
+"mockQuotes.error.missingFile" = "MockAnimechanQuotes.json file not found.";
+
+"animechan.error.rateLimited" = "Too many requests to Animechan. Wait a bit and try refreshing the list.";
+"animechan.error.unexpectedStatusCode" = "Animechan returned an unexpected response code: %d.";

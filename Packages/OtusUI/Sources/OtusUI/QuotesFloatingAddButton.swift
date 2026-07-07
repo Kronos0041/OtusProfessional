@@ -6,6 +6,7 @@ public struct QuotesFloatingAddButton: View {
     private let shadowRadius: CGFloat
     private let shadowOffsetX: CGFloat
     private let shadowOffsetY: CGFloat
+    private let accessibilityLabel: String
     private let action: () -> Void
 
     /// Создаёт плавающую кнопку добавления с иконкой `plus`.
@@ -19,6 +20,7 @@ public struct QuotesFloatingAddButton: View {
     ///   - shadowRadius: Радиус размытия тени.
     ///   - shadowOffsetX: Горизонтальное смещение тени.
     ///   - shadowOffsetY: Вертикальное смещение тени.
+    ///   - accessibilityLabel: Текст, который VoiceOver озвучивает для кнопки.
     ///   - action: Действие, которое выполняется при нажатии на кнопку.
     public init(
         size: CGFloat = 56,
@@ -26,6 +28,7 @@ public struct QuotesFloatingAddButton: View {
         shadowRadius: CGFloat = 10,
         shadowOffsetX: CGFloat = 0,
         shadowOffsetY: CGFloat = 4,
+        accessibilityLabel: String,
         action: @escaping () -> Void
     ) {
         self.size = size
@@ -33,6 +36,7 @@ public struct QuotesFloatingAddButton: View {
         self.shadowRadius = shadowRadius
         self.shadowOffsetX = shadowOffsetX
         self.shadowOffsetY = shadowOffsetY
+        self.accessibilityLabel = accessibilityLabel
         self.action = action
     }
 
@@ -51,6 +55,6 @@ public struct QuotesFloatingAddButton: View {
                 )
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("Добавить запрос")
+        .accessibilityLabel(accessibilityLabel)
     }
 }

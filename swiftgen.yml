@@ -1,0 +1,8 @@
+strings:
+  inputs:
+    - en.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: OtusProfessional/Generated/SwiftGen.swift
+      params:
+        enumName: SwiftGen
