@@ -43,16 +43,6 @@ internal struct AnimeQuoteDetailScreen: View {
             AnimeNavigationBar(title: SwiftGen.Quotes.Detail.title, canGoBack: true) {
                 path.removeLast()
             }
-
-            Picker(SwiftGen.Quotes.Category.title, selection: rubricBinding) {
-                ForEach(QuotesRubric.allCases) { rubric in
-                    Text(rubric.title).tag(rubric)
-                }
-            }
-            .pickerStyle(.segmented)
-            .padding(.horizontal)
-            .padding(.bottom, QuotesConstants.Layout.segmentedBottomPadding)
-
             content
         }
         .background(Color(.systemGroupedBackground))
