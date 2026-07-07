@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A10000000000000000000003 /* AnimechanAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000002 /* AnimechanAPI */; };
+		A20000000000000000000003 /* OtusUI in Frameworks */ = {isa = PBXBuildFile; productRef = A20000000000000000000002 /* OtusUI */; };
 		FA27D3822FFCCE0000E7EF62 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA27D3802FFCCE0000E7EF62 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10000000000000000000003 /* AnimechanAPI in Frameworks */,
+				A20000000000000000000003 /* OtusUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +78,7 @@
 			name = OtusProfessional;
 			packageProductDependencies = (
 				A10000000000000000000002 /* AnimechanAPI */,
+				A20000000000000000000002 /* OtusUI */,
 			);
 			productName = OtusProfessional;
 			productReference = FA1A8DC02FA36EF9001367FD /* OtusProfessional.app */;
@@ -108,6 +111,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				A10000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AnimechanAPI" */,
+				A20000000000000000000001 /* XCLocalSwiftPackageReference "Packages/OtusUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA1A8DC12FA36EF9001367FD /* Products */;
@@ -393,6 +397,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/AnimechanAPI;
 		};
+		A20000000000000000000001 /* XCLocalSwiftPackageReference "Packages/OtusUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/OtusUI;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -400,6 +408,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A10000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AnimechanAPI" */;
 			productName = AnimechanAPI;
+		};
+		A20000000000000000000002 /* OtusUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A20000000000000000000001 /* XCLocalSwiftPackageReference "Packages/OtusUI" */;
+			productName = OtusUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,12 +7,13 @@
 
 import SwiftUI
 import AnimechanAPI
+import OtusUI
 
 
 internal struct AnimeQuoteDetailScreen: View {
-    let quote: AnimechanQuote
-    let depth: Int
-    @Binding var path: [AnimeRoute]
+    private let quote: AnimechanQuote
+    private let depth: Int
+    @Binding private var path: [AnimeRoute]
 
     @StateObject private var store: Store<QuotesState, QuotesAction>
     @State private var flyingQuote: AnimechanQuote?
@@ -22,12 +23,8 @@ internal struct AnimeQuoteDetailScreen: View {
         quote: AnimechanQuote,
         depth: Int,
         path: Binding<[AnimeRoute]>,
-        quotesService: QuotesService?
+        quotesService: QuotesService
     ) {
-        let resolvedQuotesService = quotesService
-            ?? ServiceLocator.shared.resolve(QuotesServiceImpl.self)
-            ?? QuotesServiceImpl()
-
         self.quote = quote
         self.depth = depth
         _path = path
@@ -37,7 +34,7 @@ internal struct AnimeQuoteDetailScreen: View {
                 excludedQuoteID: quote.id
             ),
             reducer: quotesReducer,
-            middlewares: [quotesMiddleware(service: resolvedQuotesService)]
+            middlewares: [quotesMiddleware(service: quotesService)]
         ))
     }
 
@@ -94,7 +91,7 @@ internal struct AnimeQuoteDetailScreen: View {
                 Section(store.state.subtitle) {
                     HStack {
                         Spacer()
-                        ProgressView()
+                        ActivityIndicatorRepresentable(isAnimating: .constant(true))
                         Spacer()
                     }
                 }
@@ -132,7 +129,10 @@ internal struct AnimeQuoteDetailScreen: View {
                     if store.state.isLoadingPage {
                         HStack {
                             Spacer()
-                            ProgressView()
+                            ActivityIndicatorRepresentable(
+                                isAnimating: .constant(true),
+                                style: .medium
+                            )
                             Spacer()
                         }
                     }
@@ -176,7 +176,10 @@ internal struct AnimeQuoteDetailScreen: View {
             }
 
             withAnimation {
-                path.append(.quoteDetail(quote, depth: depth + QuotesConstants.Navigation.depthStep))
+                path.append(AnimeRoute(
+                    quote: quote,
+                    depth: depth + QuotesConstants.Navigation.depthStep
+                ))
             }
 
             flyingQuote = nil

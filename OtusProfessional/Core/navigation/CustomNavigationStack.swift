@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 struct CustomNavigationStack<Root: View, Destination: View>: View {
-    @Binding var path: [AnimeRoute]
-    let root: Root
-    let destination: (AnimeRoute) -> Destination
+    @Binding private var path: [AnimeRoute]
+    private let root: Root
+    private let destination: (AnimeRoute) -> Destination
 
     init(
         path: Binding<[AnimeRoute]>,
@@ -30,7 +30,7 @@ struct CustomNavigationStack<Root: View, Destination: View>: View {
                 .allowsHitTesting(path.isEmpty)
                 .zIndex(.zero)
 
-            ForEach(Array(path.enumerated()), id: \.offset) { index, route in
+            ForEach(Array(path.enumerated()), id: \.element.id) { index, route in
                 destination(route)
                     .transition(.asymmetric(
                         insertion: .move(edge: .trailing),

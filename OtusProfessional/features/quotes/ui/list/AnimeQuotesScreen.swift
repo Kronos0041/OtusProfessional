@@ -7,14 +7,15 @@
 
 import SwiftUI
 import AnimechanAPI
+import OtusUI
 
 internal struct AnimeQuotesScreen: View {
-    let depth: Int
-    @Binding var path: [AnimeRoute]
+    @Binding private var path: [AnimeRoute]
 
     @StateObject private var store: Store<QuotesState, QuotesAction>
     @State private var flyingQuote: AnimechanQuote?
     @State private var flightProgress = false
+    private let depth: Int
     
     
     private var rubricBinding: Binding<QuotesRubric> {
@@ -46,18 +47,14 @@ internal struct AnimeQuotesScreen: View {
         context: QuotesContext,
         depth: Int,
         path: Binding<[AnimeRoute]>,
-        quotesService: QuotesService?
+        quotesService: QuotesService
     ) {
-        let resolvedQuotesService = quotesService
-            ?? ServiceLocator.shared.resolve(QuotesServiceImpl.self)
-            ?? QuotesServiceImpl()
-
         self.depth = depth
         _path = path
         _store = StateObject(wrappedValue: Store(
             initial: QuotesState(context: context),
             reducer: quotesReducer,
-            middlewares: [quotesMiddleware(service: resolvedQuotesService)]
+            middlewares: [quotesMiddleware(service: quotesService)]
         ))
     }
 
@@ -80,7 +77,7 @@ internal struct AnimeQuotesScreen: View {
         }
         .background(Color(.systemGroupedBackground))
         .overlay(alignment: .bottomTrailing) {
-            QuotesFloatingAddButton {
+            QuotesFloatingAddButton(accessibilityLabel: Strings.Quotes.Action.addRequest) {
                 store.dispatch(.showQueryDialog)
             }
             .padding(.trailing, QuotesConstants.Layout.floatingButtonTrailingPadding)
@@ -119,7 +116,7 @@ internal struct AnimeQuotesScreen: View {
     @ViewBuilder
     private var content: some View {
         if store.state.viewMode == .loading, store.state.quotes.isEmpty {
-            ProgressView()
+            ActivityIndicatorRepresentable(isAnimating: .constant(true))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else if let message = store.state.errorMessage, store.state.quotes.isEmpty {
             ContentUnavailableView(
@@ -144,7 +141,10 @@ internal struct AnimeQuotesScreen: View {
                     if store.state.isLoadingPage {
                         HStack {
                             Spacer()
-                            ProgressView()
+                            ActivityIndicatorRepresentable(
+                                isAnimating: .constant(true),
+                                style: .medium
+                            )
                             Spacer()
                         }
                     }
@@ -177,7 +177,10 @@ internal struct AnimeQuotesScreen: View {
             }
 
             withAnimation {
-                path.append(.quoteDetail(quote, depth: depth + QuotesConstants.Navigation.depthStep))
+                path.append(AnimeRoute(
+                    quote: quote,
+                    depth: depth + QuotesConstants.Navigation.depthStep
+                ))
             }
 
             flyingQuote = nil

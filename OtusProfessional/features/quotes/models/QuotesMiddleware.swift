@@ -11,12 +11,13 @@ import AnimechanAPI
 func quotesMiddleware(service: QuotesService) -> Middleware<QuotesState, QuotesAction> {
     { state, action in
         switch action {
-        case .screenAppeared, .quoteAppeared, .loadNextPage, .reload, .selectRubric, .confirmQueryDialog:
+        case .screenAppeared, .quoteAppeared, .reload, .selectRubric, .confirmQueryDialog:
             guard state.viewMode == .loading, let query = state.activeQuery else { return nil }
 
             do {
-                let quotes = try await service.fetchQuotes(
-                    query: query.apiQuery,
+                try Task.checkCancellation()
+                let quotes = try await service.getQuotes(
+                    query: query,
                     page: state.page
                 )
                 return .quotesLoaded(quotes)

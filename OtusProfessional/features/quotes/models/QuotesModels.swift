@@ -5,7 +5,6 @@
 //  Created by Alex on 16.06.2026.
 
 import Foundation
-import AnimechanAPI
 
 /// Рубрика выбора цитат внутри одного экрана.
 enum QuotesRubric: String, CaseIterable, Identifiable {
@@ -36,13 +35,6 @@ enum QuotesQuery: Hashable {
         switch self {
         case let .anime(name):     return Strings.Quotes.Query.anime(name)
         case let .character(name): return Strings.Quotes.Query.character(name)
-        }
-    }
-
-    var apiQuery: AnimechanQuery {
-        switch self {
-        case let .anime(name):     return .anime(name)
-        case let .character(name): return .character(name)
         }
     }
 }

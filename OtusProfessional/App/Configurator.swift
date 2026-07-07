@@ -10,7 +10,7 @@ import Foundation
 final class Configurator {
     static let shared = Configurator()
 
-    let serviceLocator = ServiceLocator.shared
+    private let serviceLocator = ServiceLocator.shared
 
     private init() {}
 
@@ -19,7 +19,13 @@ final class Configurator {
     }
 
     private func registerServices() {
-        serviceLocator.register(QuotesServiceImpl(), for: QuotesServiceImpl.self)
+        serviceLocator.register(QuotesServiceImpl(), for: QuotesService.self)
         serviceLocator.register(MockQuotesService(), for: MockQuotesService.self)
+    }
+    
+    func makeContentView() -> ContentView {
+        ContentView(
+            quotesService: serviceLocator.require(QuotesService.self)
+        )
     }
 }

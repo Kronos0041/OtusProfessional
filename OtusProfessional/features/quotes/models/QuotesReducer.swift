@@ -11,7 +11,6 @@ func quotesReducer(state: inout QuotesState, action: QuotesAction) {
     switch action {
     case .screenAppeared:              loadInitialPageIfNeeded(&state)
     case .quoteAppeared(let id):       loadNextPageIfNeeded(afterAppearing: id, &state)
-    case .loadNextPage:                 startLoading(&state)
     case .reload:                       resetForReload(&state)
     case .selectRubric(let r):          selectRubric(r, &state)
     case .showQueryDialog:              showQueryDialog(&state)
