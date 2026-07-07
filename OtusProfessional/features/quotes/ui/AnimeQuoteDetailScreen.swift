@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AnimechanAPI
+import OtusUI
 
 
 internal struct AnimeQuoteDetailScreen: View {
