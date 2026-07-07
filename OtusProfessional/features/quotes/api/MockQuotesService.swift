@@ -14,7 +14,7 @@ enum MockQuotesServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .missingFile:
-            return SwiftGen.MockQuotes.Error.missingFile
+            return Strings.MockQuotes.Error.missingFile
         }
     }
 }

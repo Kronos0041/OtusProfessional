@@ -1,6 +1,7 @@
 "quotes.rubric.anime" = "По аниме";
 "quotes.rubric.character" = "По герою";
 
+"quotes.title" = "Animechan";
 "quotes.category.title" = "Рубрика";
 "quotes.query.anime" = "Запрос: anime=%@";
 "quotes.query.character" = "Запрос: character=%@";

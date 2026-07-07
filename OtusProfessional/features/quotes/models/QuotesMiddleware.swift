@@ -31,13 +31,13 @@ func quotesMiddleware(service: QuotesService) -> Middleware<QuotesState, QuotesA
 
 private func localizedLoadingMessage(for error: Error) -> String {
     guard let animechanError = error as? AnimechanServiceError else {
-        return error.localizedDescription
+        return Strings.Quotes.Error.loadFailed
     }
 
     switch animechanError {
     case .rateLimited:
-        return SwiftGen.Animechan.Error.rateLimited
+        return Strings.Animechan.Error.rateLimited
     case let .unexpectedStatusCode(code):
-        return SwiftGen.Animechan.Error.unexpectedStatusCode(code)
+        return Strings.Animechan.Error.unexpectedStatusCode(code)
     }
 }

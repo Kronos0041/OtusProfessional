@@ -28,6 +28,6 @@ struct QuotesFloatingAddButton: View {
                 )
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(SwiftGen.Quotes.Action.addRequest)
+        .accessibilityLabel(Strings.Quotes.Action.addRequest)
     }
 }
