@@ -28,6 +28,6 @@ struct QuotesFloatingAddButton: View {
                 )
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("Добавить запрос")
+        .accessibilityLabel(Strings.Quotes.Action.addRequest)
     }
 }

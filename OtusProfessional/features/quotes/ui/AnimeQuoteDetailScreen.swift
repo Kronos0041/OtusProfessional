@@ -43,11 +43,11 @@ internal struct AnimeQuoteDetailScreen: View {
 
     var body: some View {
         VStack(spacing: QuotesConstants.Layout.zeroSpacing) {
-            AnimeNavigationBar(title: "Цитата", canGoBack: true) {
+            AnimeNavigationBar(title: Strings.Quotes.Detail.title, canGoBack: true) {
                 path.removeLast()
             }
 
-            Picker("Рубрика", selection: rubricBinding) {
+            Picker(Strings.Quotes.Category.title, selection: rubricBinding) {
                 ForEach(QuotesRubric.allCases) { rubric in
                     Text(rubric.title).tag(rubric)
                 }
@@ -106,7 +106,7 @@ internal struct AnimeQuoteDetailScreen: View {
 
                 Section(store.state.subtitle) {
                     ContentUnavailableView(
-                        "Не удалось загрузить цитаты",
+                        Strings.Quotes.Error.loadFailed,
                         systemImage: "exclamationmark.triangle",
                         description: Text(message)
                     )
@@ -140,7 +140,7 @@ internal struct AnimeQuoteDetailScreen: View {
                     Text(store.state.subtitle)
                 } footer: {
                     if !store.state.canLoadNextPage {
-                        Text("Больше цитат для этой рубрики нет.")
+                        Text(Strings.Quotes.Footer.noMoreQuotes)
                     }
                 }
             }

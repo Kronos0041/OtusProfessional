@@ -57,7 +57,7 @@ struct QuotesState {
     var title: String {
         switch context {
         case .default:
-            return "Animechan"
+            return Strings.Quotes.title
         case let .related(anime, _):
             return anime
         }
@@ -74,20 +74,20 @@ struct QuotesState {
     }
 
     var subtitle: String {
-        activeQuery?.subtitle ?? "Нажмите +, чтобы задать запрос"
+        activeQuery?.subtitle ?? Strings.Quotes.Subtitle.empty
     }
 
     var dialogTitle: String {
         switch rubric {
-        case .anime: return "Введите аниме"
-        case .character: return "Введите персонажа"
+        case .anime: return Strings.Quotes.Dialog.Title.anime
+        case .character: return Strings.Quotes.Dialog.Title.character
         }
     }
 
     var dialogPlaceholder: String {
         switch rubric {
-        case .anime: return "Например, Naruto"
-        case .character: return "Например, Saitama"
+        case .anime: return Strings.Quotes.Dialog.Placeholder.anime
+        case .character: return Strings.Quotes.Dialog.Placeholder.character
         }
     }
 

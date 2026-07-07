@@ -1,0 +1,27 @@
+"quotes.rubric.anime" = "По аниме";
+"quotes.rubric.character" = "По герою";
+
+"quotes.title" = "Animechan";
+"quotes.category.title" = "Рубрика";
+"quotes.query.anime" = "Запрос: anime=%@";
+"quotes.query.character" = "Запрос: character=%@";
+"quotes.subtitle.empty" = "Нажмите +, чтобы задать запрос";
+
+"quotes.dialog.title.anime" = "Введите аниме";
+"quotes.dialog.title.character" = "Введите персонажа";
+"quotes.dialog.placeholder.anime" = "Например, Naruto";
+"quotes.dialog.placeholder.character" = "Например, Saitama";
+
+"quotes.detail.title" = "Цитата";
+"quotes.error.loadFailed" = "Не удалось загрузить цитаты";
+"quotes.footer.noMoreQuotes" = "Больше цитат для этой рубрики нет.";
+"quotes.error.emptyQuery" = "Введите значение для запроса.";
+"quotes.action.addRequest" = "Добавить запрос";
+
+"common.cancel" = "Отменить";
+"common.ok" = "ОК";
+
+"mockQuotes.error.missingFile" = "Не найден файл MockAnimechanQuotes.json.";
+
+"animechan.error.rateLimited" = "Слишком много запросов к Animechan. Подождите немного и попробуйте обновить список.";
+"animechan.error.unexpectedStatusCode" = "Animechan вернул неожиданный код ответа: %d.";
