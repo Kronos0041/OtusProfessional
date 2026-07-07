@@ -15,6 +15,7 @@ func quotesMiddleware(service: QuotesService) -> Middleware<QuotesState, QuotesA
             guard state.viewMode == .loading, let query = state.activeQuery else { return nil }
 
             do {
+                try Task.checkCancellation()
                 let quotes = try await service.getQuotes(
                     query: query,
                     page: state.page

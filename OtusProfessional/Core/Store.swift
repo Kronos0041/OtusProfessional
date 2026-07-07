@@ -17,6 +17,7 @@ final class Store<State, Action>: ObservableObject {
 
     private let reducer: (inout State, Action) -> Void
     private let middlewares: [Middleware<State, Action>]
+    private var effectTask: Task<Void, Never>?
 
     init(
         initial: State,
@@ -32,13 +33,22 @@ final class Store<State, Action>: ObservableObject {
         reducer(&state, action)
 
         guard !middlewares.isEmpty else { return }
-
-        Task { [middlewares] in
+        
+        runTask(action)
+    }
+    
+    private func runTask(_ action: Action) {
+        effectTask?.cancel()
+        let snapshotState = state
+        effectTask = Task<Void, Never> { [middlewares] in
             for middleware in middlewares {
-                if let followUp = await middleware(state, action) {
+                guard !Task.isCancelled else { return }
+                if let followUp = await middleware(snapshotState, action) {
+                    guard !Task.isCancelled else { return }
                     dispatch(followUp)
                 }
             }
         }
     }
 }
+
