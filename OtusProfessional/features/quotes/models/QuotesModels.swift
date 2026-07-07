@@ -16,8 +16,8 @@ enum QuotesRubric: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .anime:     return "По аниме"
-        case .character: return "По герою"
+        case .anime:     return SwiftGen.Quotes.Rubric.anime
+        case .character: return SwiftGen.Quotes.Rubric.character
         }
     }
 }
@@ -34,8 +34,8 @@ enum QuotesQuery: Hashable {
 
     var subtitle: String {
         switch self {
-        case let .anime(name):     return "Запрос: anime=\(name)"
-        case let .character(name): return "Запрос: character=\(name)"
+        case let .anime(name):     return SwiftGen.Quotes.Query.anime(name)
+        case let .character(name): return SwiftGen.Quotes.Query.character(name)
         }
     }
 

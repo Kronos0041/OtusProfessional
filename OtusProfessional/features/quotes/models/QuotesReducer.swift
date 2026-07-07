@@ -76,7 +76,7 @@ private func confirmQueryDialog(_ state: inout QuotesState) {
     let queryName = state.queryDraft.trimmingCharacters(in: .whitespacesAndNewlines)
 
     guard !queryName.isEmpty else {
-        state.viewMode = .errorMessage("Введите значение для запроса.")
+        state.viewMode = .errorMessage(SwiftGen.Quotes.Error.emptyQuery)
         return
     }
 

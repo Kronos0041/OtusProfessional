@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AnimechanAPI
 
 func quotesMiddleware(service: QuotesService) -> Middleware<QuotesState, QuotesAction> {
     { state, action in
@@ -20,10 +21,23 @@ func quotesMiddleware(service: QuotesService) -> Middleware<QuotesState, QuotesA
                 )
                 return .quotesLoaded(quotes)
             } catch {
-                return .loadingFailed(error.localizedDescription)
+                return .loadingFailed(localizedLoadingMessage(for: error))
             }
         default:
             return nil
         }
+    }
+}
+
+private func localizedLoadingMessage(for error: Error) -> String {
+    guard let animechanError = error as? AnimechanServiceError else {
+        return error.localizedDescription
+    }
+
+    switch animechanError {
+    case .rateLimited:
+        return SwiftGen.Animechan.Error.rateLimited
+    case let .unexpectedStatusCode(code):
+        return SwiftGen.Animechan.Error.unexpectedStatusCode(code)
     }
 }
